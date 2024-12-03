@@ -25,6 +25,6 @@ mongoose
   .catch((error) => console.log("Error connecting to mongo DB", error.message));
 
 
-app.use('/api/product', productController)
+app.use('/api/products', productController)
 
 module.exports = app;
