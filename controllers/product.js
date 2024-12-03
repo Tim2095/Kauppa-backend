@@ -1,10 +1,14 @@
 const productRouter = require('express').Router()
-const productSchema = require('../models/productSchema')
+const Product = require('../models/productSchema')
 
 productRouter.post('/', async (req, res) => {
-  const product = req.body
-  console.log(product)
-  res.json(product)
+  try {
+    const product = new Product(req.body) 
+    const savedProduct = await product.save()
+    res.status(201).json(savedProduct)
+  } catch(err) {
+    res.status(400).json({ error: err.message })
+  }
 })
 
 module.exports = productRouter
