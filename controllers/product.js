@@ -11,4 +11,10 @@ productRouter.post('/', async (req, res) => {
   }
 })
 
+
+productRouter.get('/', async (req, res) => {
+  const products = await Product.find({})
+  res.json(products)
+})
+
 module.exports = productRouter
