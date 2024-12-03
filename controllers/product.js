@@ -17,4 +17,9 @@ productRouter.get('/', async (req, res) => {
   res.json(products)
 })
 
+productRouter.get('/new-products', async (req, res) => {
+  const products = await Product.find({}).limit(6)
+  res.json(products)
+})
+
 module.exports = productRouter
