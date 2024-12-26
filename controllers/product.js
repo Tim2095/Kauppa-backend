@@ -3,7 +3,6 @@ const Product = require('../models/productSchema')
 
 productRouter.post('/', async (req, res) => {
   try {
-    console.log('gp')
     const product = new Product(req.body) 
     const savedProduct = await product.save()
     res.status(201).json(savedProduct)
