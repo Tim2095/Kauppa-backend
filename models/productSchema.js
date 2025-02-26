@@ -1,13 +1,12 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
   name: String,
   description: String,
   price: Number,
   category: String,
-  image: String, 
+  image: String,
 });
-
 
 productSchema.set("toJSON", {
   transform: (document, returnedObject) => {
@@ -17,4 +16,4 @@ productSchema.set("toJSON", {
   },
 });
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model("Product", productSchema);
